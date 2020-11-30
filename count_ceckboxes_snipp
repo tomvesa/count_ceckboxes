@@ -26,7 +26,7 @@ elementsArray.forEach(function(elem) {
 // and run the countCheckboxes function after it is clicked
 // and after it displays the $sourceID field, for it is display:none 
 
-let basketball1 = document.querySelector(`#choice_7_3_3`);
+let basketball1 = document.querySelector(`#choice_7_3_1`);
 
 basketball1.addEventListener("click", function(){
 // set timeout and to let the $target display:block 
