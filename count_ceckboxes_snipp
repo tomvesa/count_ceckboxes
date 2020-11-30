@@ -1,0 +1,39 @@
+/*
+* Count Checkboxes takes in the $sourceID field and checks how many choices is checked
+* it then it puts the count into a $targetID field
+*/
+function countCheckboxes(sourceId,targetId){
+//  check that the source field is not hidden by conditional logic
+if(document.querySelector(`#field_7_${sourceId}`).style.display != 'none'){
+//  create Array with all the choices in the Checkbox field
+let elementsArray = document.querySelectorAll(`#field_7_${sourceId} input`);
+console.log(elementsArray); //test we got all the fields
+
+//add an evetListener to each choice to search how many choices has been checked at that time of a click
+elementsArray.forEach(function(elem) {
+    elem.addEventListener("click", function() {
+    let basketTeams = document.querySelectorAll(`#field_7_${sourceId} input:checked`).length;
+// select the $target field id    
+    let basketTeamsCount = document.querySelector(`#input_7_${targetId}`);
+    console.log(basketTeams);
+// asign the lengh value to a $targetID field
+    basketTeamsCount.value = basketTeams;
+    });
+});
+}} 
+
+//  need to add the click listener to SportsField choice basketball sport  
+// and run the countCheckboxes function after it is clicked
+// and after it displays the $sourceID field, for it is display:none 
+
+let basketball1 = document.querySelector(`#choice_7_3_3`);
+
+basketball1.addEventListener("click", function(){
+// set timeout and to let the $target display:block 
+//this part not working as expected at the moment.
+       setTimeout(countCheckboxes, 2000)
+    }
+        );
+        
+//Run countCheckboxes for source and target
+countCheckboxes(4,6);
